@@ -2,6 +2,7 @@ docker command:
 docker login -u rajudonkeshwar
 docker build -t rajudonkeshwar/mysql:1.0.0
 docker run -d --name mysql rajudonkeshwar/mysql:1.0.0
+docker run -d --name mysql --network expense mysql:1.0.0
 docker exec -it rajudonkeshwar/mysql:1.0.0 bash
 
 mysql commands
@@ -18,3 +19,9 @@ docker network ls
 docker network disconnect bridge mysql
 docker network disconnect bridge mysql ( here we are disconnecting mysql container from bridge network)
 docker network connect expense mysql ( here we are connecting mysql container to the expense network )
+docker run -d --name mysql --network expense mysql:1.0.0
+
+
+docker inspect mysql( container name )
+docker logs < container-name >
+docker tag my-old-app:v1.0 my-new-app:latest
